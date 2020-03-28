@@ -1,0 +1,24 @@
+[
+  {
+    "title": "Albert Heijn",
+    "id": "albert-heijn",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Albert_Heijn_Logo.svg/1200px-Albert_Heijn_Logo.svg.png",
+    "mainNumber": "+31611477215",
+    "numbers": ["+31611477215", "+31611477217"],
+    "website": "https://www.ah.nl/"
+  },
+  {
+    "title": "Jumbo",
+    "id": "jumbo",
+    "mainNumber": "+31611477215",
+    "numbers": ["+31611477215", "+31611477217"],
+    "website": "https://www.jumbo.nl/"
+  },
+  {
+    "title": "Coop",
+    "id": "coop",
+    "mainNumber": "+31611477215",
+    "numbers": ["+31611477215", "+31611477217"],
+    "website": "https://www.coop.nl/"
+  }
+]
