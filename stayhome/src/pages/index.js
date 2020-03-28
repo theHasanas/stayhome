@@ -16,6 +16,7 @@ import React from "react"
 import SEO from "../components/seo"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import styled from "@emotion/styled"
+import ExpandableBox from "../components/expandable"
 
 // Load used FA icons
 library.add(
@@ -53,9 +54,15 @@ const IndexPage = ({ data }) => (
       others to do can be done from home.
     </p>
     <List>
-      <Listing shop={data.allShopsJson.nodes[0]} />
+      <ExpandableBox
+        head={
+          <CategoryBox title="Grocery" icon="shopping-basket" color="skyblue" />
+        }
+        body={data.allShopsJson.nodes.map(shop => (
+          <Listing shop={shop} key={shop.id} />
+        ))}
+      />
 
-      <CategoryBox title="Grocery" icon="shopping-basket" color="skyblue" />
       <CategoryBox title="Pharmacy" icon="pills" color="olivedrab" />
       <CategoryBox title="Food" icon="utensils" color="tomato" />
       <CategoryBox title="Wellbeing" icon="dumbbell" color="mediumslateblue" />

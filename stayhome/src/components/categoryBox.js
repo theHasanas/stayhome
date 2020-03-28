@@ -18,7 +18,6 @@ const Icon = styled(FIcon)`
 
 const Box = styled.div`
   user-select: none;
-  cursor: pointer;
 
   display: flex;
   height: 70px;

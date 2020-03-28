@@ -10,6 +10,7 @@
   {
     "title": "Jumbo",
     "id": "jumbo",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Jumbo_Logo.svg/1200px-Jumbo_Logo.svg.png",
     "mainNumber": "+31611477215",
     "numbers": ["+31611477215", "+31611477217"],
     "website": "https://www.jumbo.nl/"
@@ -17,6 +18,7 @@
   {
     "title": "Coop",
     "id": "coop",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Coop_Logo.svg/1200px-Coop_Logo.svg.png",
     "mainNumber": "+31611477215",
     "numbers": ["+31611477215", "+31611477217"],
     "website": "https://www.coop.nl/"

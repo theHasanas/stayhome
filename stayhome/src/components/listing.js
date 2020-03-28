@@ -10,15 +10,21 @@ const Box = styled.div`
   align-items: center;
 `
 
-const Logo = styled.img`
-  height: 50px;
-  max-height: 50px;
-  max-width: 70px;
-  margin: 0;
+const LogoBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
   margin-right: 15px;
 `
 
-const Title = styled.h3`
+const Logo = styled.img`
+  max-height: 30px;
+  max-width: 60px;
+  margin: 0;
+`
+
+const Title = styled.h4`
   margin: 0;
 `
 
@@ -31,13 +37,15 @@ const Contacts = styled.div`
 `
 
 const Icon = styled(FIcon)`
-  font-size: 30px;
-  margin-left: 20px;
+  font-size: 20px;
+  margin-left: 15px;
 `
 
 const Listing = ({ shop }) => (
   <Box>
-    <Logo src={shop.logo} />
+    <LogoBox>
+      <Logo src={shop.logo} />
+    </LogoBox>
     <Title>{shop.title}</Title>
     <Contacts>
       <a href={`tel:${shop.mainNumber}`}>
