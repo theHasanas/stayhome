@@ -1,0 +1,33 @@
+[
+  {
+    "order": 0,
+    "title": "Grocery",
+    "icon": "shopping-cart",
+    "color": "skyblue"
+  },
+  {
+    "order": 1,
+    "title": "Pharmacy",
+    "icon": "pills",
+    "color": "olivedrab"
+  },
+
+  {
+    "order": 2,
+    "title": "Food",
+    "icon": "utensils",
+    "color": "tomato"
+  },
+  {
+    "order": 3,
+    "title": "Wellbeing",
+    "icon": "dumbbells",
+    "color": "mediumslateblue"
+  },
+  {
+    "order": 4,
+    "title": "Electronics",
+    "icon": "tablet-alt",
+    "color": "orange"
+  }
+]

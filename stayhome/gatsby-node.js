@@ -1,7 +1,32 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require("path")
+const _ = require("lodash")
 
-// You can delete this file if you're not using it
+exports.createPages = async ({ actions, graphql, reporter }) => {
+  const { createPage } = actions
+
+  const categoryTemplate = path.resolve("src/templates/categories.js")
+
+  const result = await graphql(`
+    categories: allShopsJson {
+      distinct(field: categories)
+    }
+  `)
+
+  // handle errors
+  if (result.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
+  }
+
+  result.data.categories.distinct.forEach(category => {
+    console.log(category)
+
+    createPage({
+      path: `/categories/${_.kebabCase(category)}/`,
+      component: categoryTemplate,
+      context: {
+        category,
+      },
+    })
+  })
+}
