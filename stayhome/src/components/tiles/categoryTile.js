@@ -1,12 +1,14 @@
 import React from "react"
 import { kebabCase } from "lodash"
 import Tile from "./tile"
+import { navigate } from "gatsby"
 
 const CategoryTile = ({ category }) => (
   <Tile
     title={category.title}
     icon={category.icon}
-    url={`/categories/${kebabCase(category.title)}/`}
+    color={category.color}
+    onClick={() => navigate(`/categories/${kebabCase(category.title)}/`)}
   />
 )
 

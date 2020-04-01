@@ -1,8 +1,20 @@
 import { FontAwesomeIcon as FIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 import styled from "@emotion/styled"
-import { navigate } from "gatsby"
-import { typography, media, colors, units } from "../utils/styles"
+import { typography, media, colors, units } from "../../utils/styles"
+
+const Icon = styled(FIcon)`
+  font-size: 4em;
+  color: ${props => (props.color ? props.color : colors.white)};
+  opacity: 0.5;
+  transition: opacity 0.2s ease-out;
+`
+
+const Image = styled.img`
+  max-width: 80%;
+  max-height: 50%;
+  margin: 0;
+`
 
 const Box = styled.div`
   position: relative;
@@ -28,6 +40,10 @@ const Box = styled.div`
 
   user-select: none;
   cursor: pointer;
+
+  &:hover ${Icon} {
+    opacity: 1;
+  }
 `
 
 const Content = styled.div`
@@ -44,16 +60,6 @@ const Content = styled.div`
   overflow: hidden;
 `
 
-const Icon = styled(FIcon)`
-  font-size: 4em;
-  color: white;
-  opacity: 0.4;
-`
-
-const Image = styled.img`
-  margin: 0;
-`
-
 const Title = styled.div`
   font-size: 1.5em;
   font-weight: bold;
@@ -63,11 +69,11 @@ const Title = styled.div`
   margin-top: 15px;
 `
 
-const Tile = ({ title, icon, image, url }) => {
+const Tile = ({ title, icon, image, onClick, color }) => {
   return (
-    <Box onClick={() => navigate(url)}>
+    <Box onClick={onClick}>
       <Content>
-        {image ? <Image src={image} /> : <Icon icon={icon} />}
+        {image ? <Image src={image} /> : <Icon icon={icon} color={color} />}
         <Title>{title}</Title>
       </Content>
     </Box>

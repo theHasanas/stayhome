@@ -8,6 +8,7 @@ import {
   faUtensils,
   faPhone,
   faGlobe,
+  faExternalLinkAlt,
 } from "@fortawesome/free-solid-svg-icons"
 
 /**
@@ -22,6 +23,7 @@ export function loadIcons() {
     faDumbbell,
     faTabletAlt,
     faPhone,
-    faGlobe
+    faGlobe,
+    faExternalLinkAlt
   )
 }

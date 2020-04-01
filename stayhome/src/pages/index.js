@@ -1,18 +1,12 @@
-import CategoryTile from "../components/categoryTile"
+import { graphql } from "gatsby"
+import CategoryTile from "../components/tiles/categoryTile"
+import TileGrid from "../components/tiles/tileGrid"
 import Layout from "../components/layout"
 import React from "react"
 import SEO from "../components/seo"
-import styled from "@emotion/styled"
-import { loadIcons } from "../utils/fontAwesome"
-import { units } from "../utils/styles"
+import { loadIcons } from "../utils/icons"
 
 loadIcons()
-
-const Grid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin: -${units.gridMargin};
-`
 
 const IndexPage = ({ data }) => {
   const categories = data.categoriesJson.categories
@@ -32,11 +26,11 @@ const IndexPage = ({ data }) => {
         others to do can be done from home.
       </p>
 
-      <Grid>
+      <TileGrid>
         {categories.map(category => (
           <CategoryTile key={category.order} category={category} />
         ))}
-      </Grid>
+      </TileGrid>
     </Layout>
   )
 }

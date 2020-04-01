@@ -1,5 +1,6 @@
 export const colors = {
   offblack: "#141414",
+  white: "white",
 }
 
 export const typography = {
