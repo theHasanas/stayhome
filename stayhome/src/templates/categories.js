@@ -1,24 +1,25 @@
 import { graphql } from "gatsby"
-import CategoryCover from "../components/categoryCover"
 import Layout from "../components/layout"
 import React from "react"
 import SEO from "../components/seo"
 import styled from "@emotion/styled"
+import Tile from "../components/tile"
 
 const Grid = styled.div`
   display: flex;
   flex-wrap: wrap;
 `
 
-const Categories = ({ data }) => {
-  const shops = data.allShopsJson.nodes
+const Categories = ({ pageContext, data }) => {
+  const shops = data.shopsJson.shops
+  console.log(shops[0].title)
 
   return (
     <Layout>
-      <SEO title="All" />
+      <SEO title={pageContext.category.title} />
       <Grid>
         {shops.map(shop => (
-          <CategoryCover
+          <Tile
             title={shop.title}
             icon="shopping-basket"
             key={shop.id}
@@ -32,9 +33,9 @@ const Categories = ({ data }) => {
 export default Categories
 
 export const pageQuery = graphql`
-  query Bottle {
-    allShopsJson(filter: { categories: { eq: "Grocery" } }) {
-      nodes {
+  {
+    shopsJson: allShopsJson(filter: { categories: { eq: "Grocery" } }) {
+      shops: nodes {
         categories
         id
         mainNumber

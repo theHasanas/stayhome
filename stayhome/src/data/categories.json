@@ -2,7 +2,7 @@
   {
     "order": 0,
     "title": "Grocery",
-    "icon": "shopping-cart",
+    "icon": "shopping-basket",
     "color": "skyblue"
   },
   {
@@ -21,7 +21,7 @@
   {
     "order": 3,
     "title": "Wellbeing",
-    "icon": "dumbbells",
+    "icon": "dumbbell",
     "color": "mediumslateblue"
   },
   {

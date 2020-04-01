@@ -7,23 +7,25 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const categoryTemplate = path.resolve("src/templates/categories.js")
 
   const result = await graphql(`
-    categories: allShopsJson {
-      distinct(field: categories)
+  {
+    categoriesJson: allCategoriesJson {
+      categories: nodes {
+        title
+      }
     }
+  }
   `)
 
-  // handle errors
+  // handle kkerrors
   if (result.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
 
-  result.data.categories.distinct.forEach(category => {
-    console.log(category)
-
+  result.data.categoriesJson.categories.forEach(category => {
     createPage({
-      path: `/categories/${_.kebabCase(category)}/`,
-      component: categoryTemplate,
+      path: `/categories/${_.kebabCase(category.title)}/`,
+      component: categoryTemplate({ category }),
       context: {
         category,
       },
