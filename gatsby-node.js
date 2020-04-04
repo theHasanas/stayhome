@@ -1,5 +1,30 @@
 const path = require("path")
 const _ = require("lodash")
+const locales = require("./src/i18n/locales")
+const texts = require("./src/i18n/texts")
+
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage, deletePage } = actions
+
+  return new Promise(resolve => {
+    deletePage(page)
+
+    locales.map(locale => {
+      const path = locale.default ? page.path : locale.id + page.path
+
+      return createPage({
+        ...page,
+        path: path,
+        context: {
+          locale: locale,
+          texts: texts[locale.id],
+        },
+      })
+    })
+
+    resolve()
+  })
+}
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
@@ -11,14 +36,24 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     {
       categoriesJson: allCategoriesJson {
         categories: nodes {
-          title
-          icon
+          order
+          id
+          en {
+            title
+          }
+          nl {
+            title
+          }
         }
       }
       shopsJson: allShopsJson {
         shops: nodes {
-          title
+          categories
           id
+          logo
+          numbers
+          title
+          website
         }
       }
     }
@@ -29,25 +64,43 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
 
-  result.data.categoriesJson.categories.forEach(category => {
-    createPage({
-      path: `/categories/${_.kebabCase(category.title)}/`,
-      component: categoryTemplate,
-      context: {
-        category,
-        categoryTitle: category.title,
-      },
+  const categories = result.data.categoriesJson.categories
+  const shops = result.data.shopsJson.shops
+
+  categories.forEach(category => {
+    const path = `/categories/${category.id}/`
+
+    locales.forEach(locale => {
+      const localizedPath = locale.default ? path : locale.id + path
+
+      createPage({
+        path: localizedPath,
+        component: categoryTemplate,
+        context: {
+          category,
+          shops: shops.filter(shop => shop.categories.includes(category.id)),
+          locale: locale,
+          texts: texts[locale.id],
+        },
+      })
     })
   })
 
-  result.data.shopsJson.shops.forEach(shop => {
-    createPage({
-      path: `/shops/${_.kebabCase(shop.id)}/`,
-      component: shopTemplate,
-      context: {
-        shop,
-        shopId: shop.id,
-      },
+  shops.forEach(shop => {
+    const path = `/shops/${shop.id}/`
+
+    locales.forEach(locale => {
+      const localizedPath = locale.default ? path : locale.id + path
+
+      createPage({
+        path: localizedPath,
+        component: shopTemplate,
+        context: {
+          shop,
+          locale: locale,
+          texts: texts[locale.id],
+        },
+      })
     })
   })
 }

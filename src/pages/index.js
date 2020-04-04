@@ -1,4 +1,4 @@
-import { graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import CategoryTile from "../components/tiles/categoryTile"
 import TileGrid from "../components/tiles/tileGrid"
 import Layout from "../components/layout"
@@ -8,27 +8,46 @@ import { loadIcons } from "../utils/icons"
 
 loadIcons()
 
-const IndexPage = ({ data }) => {
-  const categories = data.categoriesJson.categories
+const IndexPage = ({
+  pageContext: {
+    locale,
+    texts: { homePage: texts },
+  },
+}) => {
+  const { json } = useStaticQuery(graphql`
+    query {
+      json: allCategoriesJson(sort: { order: ASC, fields: order }) {
+        categories: nodes {
+          order
+          color
+          icon
+          id
+          en {
+            title
+          }
+          nl {
+            title
+          }
+        }
+      }
+    }
+  `)
 
   return (
-    <Layout>
+    <Layout locale={locale}>
       <SEO title="All categories" />
-      <h3>General Help</h3>
-      <p>
-        At the top here there should be emergency contacts, general advice,
-        links to govermental stuff, and situation summary.
-      </p>
+      <h3>{texts["General help"]}</h3>
+      <p>{texts["#GeneralDisclaimer"]}</p>
+      <p>{texts["#EmergencyContact"]}</p>
 
-      <h1>Do it from home</h1>
-      <p>
-        There is a big chance that whatever you are going to risk yourself and
-        others to do can be done from home.
-      </p>
-
+      <h1>{texts["Rotterdam businesses"]}</h1>
       <TileGrid>
-        {categories.map(category => (
-          <CategoryTile key={category.order} category={category} />
+        {json.categories.map(category => (
+          <CategoryTile
+            key={category.order}
+            category={category}
+            locale={locale}
+          />
         ))}
       </TileGrid>
     </Layout>
@@ -36,16 +55,3 @@ const IndexPage = ({ data }) => {
 }
 
 export default IndexPage
-
-export const query = graphql`
-  {
-    categoriesJson: allCategoriesJson(sort: { order: ASC, fields: order }) {
-      categories: nodes {
-        color
-        icon
-        title
-        order
-      }
-    }
-  }
-`

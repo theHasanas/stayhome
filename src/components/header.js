@@ -1,42 +1,49 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+import styled from "@emotion/styled"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `#141414`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
+const Box = styled.div`
+  background: #141414;
+  margin-bottom: 1.45rem;
+`
+const InnerBox = styled.div`
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 960px;
+  padding: 1.45rem 1.0875rem;
+`
+
+const WhiteLink = styled(Link)`
+  color: white;
+  text-decoration: none;
+`
+
+const Title = styled.h1`
+  margin: 0;
+`
+
+const Language = styled.h5`
+  margin: 0;
+`
+
+const Header = ({ siteTitle, locale }) => (
+  <Box>
+    <InnerBox>
+      <Title>
+        <WhiteLink to={locale.default ? "/" : "/" + locale.id + "/"}>
           {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
+        </WhiteLink>
+      </Title>
+
+      <Language>
+        <WhiteLink to={locale.default ? "/en/" : "/"}>
+          {locale.default ? "🇬🇧 English" : "🇳🇱 Nederlands"}
+        </WhiteLink>
+      </Language>
+    </InnerBox>
+  </Box>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header

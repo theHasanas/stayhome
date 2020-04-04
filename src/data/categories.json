@@ -1,33 +1,54 @@
 [
   {
+    "id": "grocery",
     "order": 0,
-    "title": "Grocery",
     "icon": "shopping-basket",
-    "color": "skyblue"
-  },
-  {
-    "order": 1,
-    "title": "Pharmacy",
-    "icon": "pills",
-    "color": "olivedrab"
-  },
+    "color": "skyblue",
 
+    "nl": {
+      "title": "Boodschappen"
+    },
+    "en": {
+      "title": "Grocery"
+    }
+  },
   {
+    "id": "pharmacy",
+    "order": 1,
+    "icon": "pills",
+    "color": "olivedrab",
+
+    "nl": {
+      "title": "Apotheek"
+    },
+    "en": {
+      "title": "Pharmacy"
+    }
+  },
+  {
+    "id": "food",
     "order": 2,
-    "title": "Food",
     "icon": "utensils",
-    "color": "tomato"
+    "color": "tomato",
+
+    "nl": {
+      "title": "Eeten"
+    },
+    "en": {
+      "title": "Food"
+    }
   },
   {
+    "id": "electronics",
     "order": 3,
-    "title": "Wellbeing",
-    "icon": "dumbbell",
-    "color": "mediumslateblue"
-  },
-  {
-    "order": 4,
-    "title": "Electronics",
     "icon": "tablet-alt",
-    "color": "orange"
+    "color": "orange",
+
+    "nl": {
+      "title": "Elektronica"
+    },
+    "en": {
+      "title": "Electronics"
+    }
   }
 ]
