@@ -20,3 +20,7 @@ export const units = {
   gridMargin: `${MARGIN}px`,
   doubleGridMargins: `${2 * MARGIN}px`,
 }
+
+export const animation = {
+  easeOut: "0.2s ease-out",
+}

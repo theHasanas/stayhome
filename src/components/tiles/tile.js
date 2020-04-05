@@ -1,13 +1,13 @@
 import { FontAwesomeIcon as FIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 import styled from "@emotion/styled"
-import { typography, media, colors, units } from "../../utils/styles"
+import { typography, media, colors, units, animation } from "../../utils/styles"
 
 const Icon = styled(FIcon)`
   font-size: 4em;
   color: ${props => (props.color ? props.color : colors.white)};
   opacity: 0.5;
-  transition: opacity 0.2s ease-out;
+  transition: opacity ${animation.easeOut};
 `
 
 const Image = styled.img`

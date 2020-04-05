@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Please Stay Home`,
-    description: `Check who can deliver stuff in your area.`,
+    title: `AlleenSamen010`,
+    description: `Let's help the local businesses of Rotterdam together!`,
     author: `@hasanas`,
   },
   plugins: [
@@ -27,12 +27,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `AlleenSamen010`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
+        display: `standalone`,
         icon: `src/images/logo.png`, // This path is relative to the root of the site.
       },
     },

@@ -1,7 +1,5 @@
 const path = require("path")
-const _ = require("lodash")
 const locales = require("./src/i18n/locales")
-const texts = require("./src/i18n/texts")
 
 exports.onCreatePage = ({ page, actions }) => {
   const { createPage, deletePage } = actions
@@ -17,7 +15,6 @@ exports.onCreatePage = ({ page, actions }) => {
         path: path,
         context: {
           locale: locale,
-          texts: texts[locale.id],
         },
       })
     })
@@ -80,7 +77,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           category,
           shops: shops.filter(shop => shop.categories.includes(category.id)),
           locale: locale,
-          texts: texts[locale.id],
         },
       })
     })
@@ -98,7 +94,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         context: {
           shop,
           locale: locale,
-          texts: texts[locale.id],
         },
       })
     })

@@ -4,16 +4,10 @@ import TileGrid from "../components/tiles/tileGrid"
 import Layout from "../components/layout"
 import React from "react"
 import SEO from "../components/seo"
-import { loadIcons } from "../utils/icons"
+import allTexts from "../i18n/texts"
+import GeneralInfo from "../components/generalInfo"
 
-loadIcons()
-
-const IndexPage = ({
-  pageContext: {
-    locale,
-    texts: { homePage: texts },
-  },
-}) => {
+const IndexPage = ({ pageContext: { locale } }) => {
   const { json } = useStaticQuery(graphql`
     query {
       json: allCategoriesJson(sort: { order: ASC, fields: order }) {
@@ -32,15 +26,13 @@ const IndexPage = ({
       }
     }
   `)
+  const texts = allTexts[locale.id]
 
   return (
     <Layout locale={locale}>
       <SEO title="All categories" />
-      <h3>{texts["General help"]}</h3>
-      <p>{texts["#GeneralDisclaimer"]}</p>
-      <p>{texts["#EmergencyContact"]}</p>
-
-      <h1>{texts["Rotterdam businesses"]}</h1>
+      <GeneralInfo message={texts["#ContactRIVM"]} />
+      <h1>{texts["Local businesses"]}</h1>
       <TileGrid>
         {json.categories.map(category => (
           <CategoryTile

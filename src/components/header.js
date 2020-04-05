@@ -1,6 +1,8 @@
-import { Link } from "gatsby"
 import React from "react"
 import styled from "@emotion/styled"
+import allTexts from "../i18n/texts"
+import { localisePath, changeLocale } from "../utils/helpers"
+import { Link } from "gatsby"
 
 const Box = styled.div`
   background: #141414;
@@ -13,35 +15,39 @@ const InnerBox = styled.div`
   justify-content: space-between;
   max-width: 960px;
   padding: 1.45rem 1.0875rem;
+
+  * {
+    margin: 0;
+  }
 `
 
-const WhiteLink = styled(Link)`
+const Title = styled(Link)`
   color: white;
   text-decoration: none;
 `
 
-const Title = styled.h1`
-  margin: 0;
+const Locale = styled.h5`
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
 `
 
-const Language = styled.h5`
-  margin: 0;
-`
-
-const Header = ({ siteTitle, locale }) => (
+const Header = ({ locale }) => (
   <Box>
     <InnerBox>
-      <Title>
-        <WhiteLink to={locale.default ? "/" : "/" + locale.id + "/"}>
-          {siteTitle}
-        </WhiteLink>
+      <Title to={localisePath("/", locale)}>
+        <h2>
+          {allTexts[locale.id]["AlleenSamen"]}
+          <sup>010</sup>
+        </h2>
       </Title>
 
-      <Language>
-        <WhiteLink to={locale.default ? "/en/" : "/"}>
-          {locale.default ? "🇬🇧 English" : "🇳🇱 Nederlands"}
-        </WhiteLink>
-      </Language>
+      {locale.id === "nl" ? null : (
+        <Locale onClick={() => changeLocale("")}>{"🇳🇱 NL"}</Locale>
+      )}
+      {locale.id === "en" ? null : (
+        <Locale onClick={() => changeLocale("en")}>{"🇬🇧 EN"}</Locale>
+      )}
     </InnerBox>
   </Box>
 )
