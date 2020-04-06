@@ -9,7 +9,7 @@
       "title": "Boodschappen"
     },
     "en": {
-      "title": "Grocery"
+      "title": "Groceries"
     }
   },
   {
@@ -32,7 +32,7 @@
     "color": "tomato",
 
     "nl": {
-      "title": "Eeten"
+      "title": "Eten"
     },
     "en": {
       "title": "Food"

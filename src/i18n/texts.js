@@ -10,14 +10,14 @@ const allTexts = {
     AlleenSamen: "AlleenSamen",
     "Opening times": "Openingstijden",
     "#ContactRIVM":
-      "Voor actuele informatie over de situatie van het coronavirus, ga naar de website van het RIVM of bel de coronavirus hulplijn.",
+      "Voor actuele informatie over het coronavirus, ga naar de website van het RIVM of bel de coronavirus hulplijn.",
     "Local businesses": "Plaatselijke bedrijven",
   },
   en: {
     AlleenSamen: "AloneTogether",
     "Opening times": "Opening times",
     "#ContactRIVM":
-      "For official statements about the current situation wiht coronavirus, please visit the RIVM website or call the Coronavirus helpline.",
+      "For official statements about the current situation with coronavirus, please visit the RIVM website or call the coronavirus helpline.",
     "Local businesses": "Local businesses",
   },
 }
