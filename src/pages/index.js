@@ -33,6 +33,7 @@ const IndexPage = ({ pageContext: { locale } }) => {
       <SEO title="All categories" />
       <GeneralInfo message={texts["#ContactRIVM"]} />
       <h1>{texts["Local businesses"]}</h1>
+      <h4>{texts["#SupportLocalBusinesses"]}</h4>
       <TileGrid>
         {json.categories.map(category => (
           <CategoryTile

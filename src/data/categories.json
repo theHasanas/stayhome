@@ -13,42 +13,29 @@
     }
   },
   {
-    "id": "pharmacy",
+    "id": "cheese",
     "order": 1,
-    "icon": "pills",
-    "color": "olivedrab",
+    "icon": "cheese",
+    "color": "gold",
 
     "nl": {
-      "title": "Apotheek"
+      "title": "Kaas"
     },
     "en": {
-      "title": "Pharmacy"
+      "title": "Cheese"
     }
   },
   {
-    "id": "food",
+    "id": "drinks",
     "order": 2,
-    "icon": "utensils",
-    "color": "tomato",
+    "icon": "wine-glass-alt",
+    "color": "maroon",
 
     "nl": {
-      "title": "Eten"
+      "title": "Drank"
     },
     "en": {
-      "title": "Food"
-    }
-  },
-  {
-    "id": "electronics",
-    "order": 3,
-    "icon": "tablet-alt",
-    "color": "orange",
-
-    "nl": {
-      "title": "Elektronica"
-    },
-    "en": {
-      "title": "Electronics"
+      "title": "Drinks"
     }
   }
 ]

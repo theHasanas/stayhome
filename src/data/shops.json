@@ -1,27 +1,29 @@
 [
   {
-    "title": "Albert Heijn",
-    "id": "albert-heijn",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Albert_Heijn_Logo.svg/1200px-Albert_Heijn_Logo.svg.png",
-    "numbers": ["+31611477215", "+31611477217"],
-    "website": "https://www.ah.nl/",
-    "categories": ["grocery", "food"]
+    "title": "Markt010",
+    "id": "markt010",
+    "logo": "https://markt010.nl/wp-content/uploads/2019/10/ezgif.com-webp-to-png-50x50.png",
+    "numbers": ["+31614110152"],
+    "emails": ["info@groentenabonnement.nl"],
+    "website": "https://markt010.nl/",
+    "categories": ["grocery", "cheese"]
   },
   {
-    "title": "Jumbo",
-    "id": "jumbo",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Jumbo_Logo.svg/1200px-Jumbo_Logo.svg.png",
-    "numbers": ["+31611477215", "+31611477217"],
-    "website": "https://www.jumbo.com/",
-    "categories": ["grocery", "pharmacy"]
+    "title": "De Kaashoeve",
+    "id": "de-kaashoeve",
+    "logo": "http://de-kaashoeve.nl/bestanden/bestand/645d4b8e-60bf-4503-9cc2-ac825fe168c8.jpg/",
+    "numbers": ["+31104138644"],
+    "emails": ["info@de-kaashoeve.nl"],
+    "website": "http://de-kaashoeve.nl/",
+    "categories": ["cheese"]
   },
   {
-    "title": "Coop",
-    "id": "coop",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Coop_Logo.svg/1200px-Coop_Logo.svg.png",
-    "numbers": ["+31611477215", "+31611477217"],
-
-    "website": "https://www.coop.nl/",
-    "categories": ["grocery", "wellbeing"]
+    "title": "Blije Wijnen",
+    "id": "blijewijnen",
+    "logo": "https://www.blijewijnen.nl/wp-content/uploads/2017/02/Blije-Wijnen-logo-positief-High-res.png",
+    "numbers": ["+31650520618"],
+    "emails": ["maud@blijewijnen.nl"],
+    "website": "https://www.blijewijnen.nl/",
+    "categories": ["drinks"]
   }
 ]
